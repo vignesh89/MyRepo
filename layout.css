@@ -1,0 +1,28 @@
+html,
+body {
+	height: 100%;
+}
+  table.center {
+    width:70%; 
+    margin-left:15%; 
+    margin-right:15%;
+  }
+
+tr.server-name {
+    display: table-row;
+    font-size:27px;
+	font-family:cursive;
+    background-color:lightgreen;
+    cursor:pointer;
+	border-collapse:collapse;
+	font-weight:bold;
+}
+.members {
+    font-family:calibri;
+}
+.blips {
+    color:green;
+    font-size:19px;
+	font-weight:bold;
+	background-color:OldLace;
+}

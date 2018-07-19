@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html>
+<head>
+ <link rel="stylesheet" href="layout.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+ <script src="dropdown.js">  
+ </script>
+</head>
+<body>
+<h1>SERVER STATS </h1>
+
+<table class="center" border="1">
+    <% @servers.each do |server| %>
+     <tr class="server-name">
+     <td colspan="3"> <%= server[:server_name]  %> </td>
+    </tr>  
+    <tr class="members blips">
+       <td colspan="2"> DB_NAME </td>
+       <td colspan="4"> SCHEMA </td>
+       <td colspan="3"> SIZE[GB] </td>
+    </tr>
+    <% server[:attributes].each do |attribute| %>
+      <% attribute[:data].each.with_index do |(key, val), i| %>
+        <tr class="members">
+          <td colspan="2"> <%= i == 0 ? attribute[:name] : ""  %> </td>
+          <td colspan="4"> <%= key %></td>
+          <td colspan="3"> <%= val %></td>
+        </tr>
+      <% end %>
+      <% if attribute[:data].empty? %>
+        <tr class="members">
+          <td colspan="2"> <%= attribute[:name] %> </td>
+          <td colspan="4"> </td>
+          <td colspan="3"> </td>
+        </tr>
+      <% end %>
+     <% end %>
+    <% end %>
+  </table>
+ </body>
+ 
+ <script type="text/javascript">
+  alert("Check");
+ </script>
+</html>
